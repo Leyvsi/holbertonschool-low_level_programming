@@ -1,19 +1,19 @@
 #include "main.h"
 
 /**
- * main - affiche "_putchar" suivi d'un saut de ligne
+ * main - imprime _putchar, suivi d'une nouvelle ligne
  * Return: 0 (succès)
  */
 int main(void)
 {
-    char *s = "_putchar\n";
-    int i = 0;
-
-    while (s[i])
-    {
-        _putchar(s[i]);
-        i++;
-    }
-
+    _putchar('_');
+    _putchar('p');
+    _putchar('u');
+    _putchar('t');
+    _putchar('c');
+    _putchar('h');
+    _putchar('a');
+    _putchar('r');
+    _putchar('\n');
     return (0);
 }
