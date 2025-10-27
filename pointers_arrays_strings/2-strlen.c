@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * _strlen - retourne la longueur d'une chaîne de caractères
+ * _strlen - retourne la longueur d'une chaîne
  * @s: chaîne de caractères
  * Return: longueur de la chaîne
  */
 int _strlen(char *s)
 {
-    int len = 0;
+	int len = 0;
 
-    while (s[len] != '\0')
-        len++;
+	while (s[len] != '\0')
+		len++;
 
-    return len;
+	return len;
 }
