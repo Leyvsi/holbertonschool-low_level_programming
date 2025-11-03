@@ -1,19 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "main.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int matrix[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
+*_main - test print_diagsums with different matrices
+*
+*Return: Always 0.
+*/
+int main(void){
+int i;
+int size;
+int *matrix;
 
-    print_diagsums((int *)matrix, 3);
+srand(time(NULL));
 
-    return (0);
+/* Test 3x3 positive only */
+size = 3;
+matrix = malloc(sizeof(int) * size * size);
+for(i = 0; i < size * size; i++)
+matrix[i] = rand() % 10;
+
+print_diagsums(matrix, size);
+free(matrix);
+
+/* Test 6x6 positive and negative */
+size = 6;
+matrix = malloc(sizeof(int) * size * size);
+for(i = 0; i < size * size; i++)
+matrix[i] = (rand() % 21) - 10;
+
+print_diagsums(matrix, size);
+free(matrix);
+
+/* Test 10x10 positive and negative */
+size = 10;
+matrix = malloc(sizeof(int) * size * size);
+for(i = 0; i < size * size; i++)
+matrix[i] = (rand() % 101) - 50;
+
+print_diagsums(matrix, size);
+free(matrix);
+
+return (0);
 }
+
