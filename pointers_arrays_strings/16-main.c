@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
-*_main - test print_diagsums with different matrices
+*_main - test print_diagsums with multiple matrices
 *
 *Return: Always 0.
 */
@@ -19,7 +19,7 @@ srand(time(NULL));
 size = 3;
 matrix = malloc(sizeof(int) * size * size);
 for(i = 0; i < size * size; i++)
-matrix[i] = rand() % 10;
+matrix[i] = rand() % 10; /* 0-9 positive integers */
 
 print_diagsums(matrix, size);
 free(matrix);
@@ -28,7 +28,7 @@ free(matrix);
 size = 6;
 matrix = malloc(sizeof(int) * size * size);
 for(i = 0; i < size * size; i++)
-matrix[i] = (rand() % 21) - 10;
+matrix[i] = (rand() % 21) - 10; /* -10 to 10 */
 
 print_diagsums(matrix, size);
 free(matrix);
@@ -37,7 +37,7 @@ free(matrix);
 size = 10;
 matrix = malloc(sizeof(int) * size * size);
 for(i = 0; i < size * size; i++)
-matrix[i] = (rand() % 101) - 50;
+matrix[i] = (rand() % 101) - 50; /* -50 to 50 */
 
 print_diagsums(matrix, size);
 free(matrix);
