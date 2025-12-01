@@ -3,6 +3,8 @@
 /**
  * free_list - frees a list_t list
  * @head: pointer to the first node of the list
+ *
+ * Description: free the memory allocated for each node and its string
  */
 void free_list(list_t *head)
 {
@@ -16,3 +18,4 @@ void free_list(list_t *head)
         head = temp;
     }
 }
+
