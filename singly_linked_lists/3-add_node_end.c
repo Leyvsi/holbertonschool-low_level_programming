@@ -2,6 +2,7 @@
 
 /**
  * add_node_end - adds a new node at the end of a list_t list
+ *
  * @head: pointer to the first node of the list
  *
  * @str: string to duplicate and store in the new node
@@ -37,7 +38,7 @@ return (new_node);
 }
 
 temp = *head;
-while (temp->next != NULL);
+while (temp->next);
 temp = temp->next;
 
 temp->next = new_node;
