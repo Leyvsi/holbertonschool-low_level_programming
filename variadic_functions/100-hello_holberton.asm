@@ -1,7 +1,7 @@
-section .data
+SECTION .data
 msg db "Hello, Holberton",10
 
-section .text
+SECTION .text
 global main
 
 main:
