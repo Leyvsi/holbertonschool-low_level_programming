@@ -1,15 +1,13 @@
 #include "main.h"
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
 
 /**
  * read_textfile - Reads a text file and prints it to the POSIX standard output.
- * @filename: A pointer to the name of the file.
+ * @filename: A pointer to the name of the file to read.
  * @letters: The number of letters the function should read and print.
  *
- * Return: The actual number of bytes read and printed, 0 if the function fails
- * or if filename is NULL.
+ * Return: The actual number of letters it could read and print.
+ * 0 if the file cannot be opened or read, if filename is NULL,
+ * or if write fails or does not write the expected amount of bytes.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -20,12 +18,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 
-	/* Open the file in read-only mode */
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 
-	/* Allocate memory for the buffer based on the number of letters */
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 	{
@@ -33,7 +29,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	/* Read from the file descriptor into the buffer */
 	n_read = read(fd, buffer, letters);
 	if (n_read == -1)
 	{
@@ -42,7 +37,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	/* Write the content of the buffer to the standard output */
 	n_wrote = write(STDOUT_FILENO, buffer, n_read);
 	if (n_wrote == -1 || n_wrote != n_read)
 	{
@@ -51,7 +45,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	/* Free allocated memory and close the file descriptor */
 	free(buffer);
 	close(fd);
 
